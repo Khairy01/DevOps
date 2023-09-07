@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "WeBib",
+    "django_seed",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -75,9 +77,15 @@ WSGI_APPLICATION = "final_devops.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'BibDB',
+        'USER': 'postgres',
+        'PASSWORD': 'mars',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        
+
     }
 }
 

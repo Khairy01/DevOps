@@ -19,13 +19,12 @@ from django.urls import path, include
 from rest_framework import routers
 from WeBib import views
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('', views.home_view, name='home'),
+    path('api/user/', views.user_list, name='user_list'),
+    path('api/visit-count/', views.visit_count_api, name='visit_count_api')
 ]
+

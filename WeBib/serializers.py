@@ -7,3 +7,5 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['first_name', 'username', 'last_name', 'email']
 
 
+class VisitSerializer(serializers.Serializer):
+    visit_count = serializers.IntegerField()

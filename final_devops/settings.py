@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "WeBib",
     "django_seed",
     "rest_framework",
+    
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,13 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MIDDLEWARE_CLASSES = (
+    # ...
+    "visits.middleware.CounterMiddleware",
+)
+
+
 
 ROOT_URLCONF = "final_devops.urls"
 

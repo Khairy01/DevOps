@@ -42,6 +42,8 @@ def visit_count_api(request):
     """
     visit_count = request.session.get('visit_count', 0)
     data = {'visit_count': visit_count}
-    serializer = VisitSerializer(data)
-    return Response(serializer.data)
-
+    serializer = VisitSerializer(data=data)  # Instanciez le sérialiseur avec les données
+    if serializer.is_valid():  # Vérifiez si le sérialiseur est valide
+        return Response(serializer.data)
+    else:
+        return Response(serializer.errors, status=400)  # Si le sérialiseur n'est pas valide, renvoyez une réponse d'erreur 400

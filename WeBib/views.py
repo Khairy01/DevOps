@@ -1,14 +1,33 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from rest_framework import permissions
+
+# Create your views here.
+import base64
+from .models import *
+import requests
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate,login
+from django.contrib.auth.forms import AuthenticationForm
 from .serializers import UserSerializer,VisitSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import HttpResponse
 from rest_framework import status
-from .models import User
 
-# Create your views here.
+
+def view_accueil_user(request):
+    return render(request,"page_accueil_user.html")
+  
+def view_accueil_admin(request):
+    return render(request,"page_accueil_admin.html")
+
+def view_liste_utilisateurs(request):
+    api_url = "http://127.0.0.1:8000/api/user/"
+    response = requests.get(api_url)
+    utilisateurs = response.json()  # Si l'API renvoie des données JSON
+
+    return render(request, 'page_list_users.html', {'utilisateurs': utilisateurs})
+
+
+
 @api_view(['GET'])
 def user_list(request):
     """
@@ -33,7 +52,7 @@ def increment_visit_count(request):
 
 def home_view(request):
     visit_count = increment_visit_count(request)
-    return render(request, 'home.html', {'visit_count': visit_count})
+    return render(request, 'page_nombre_visite.html', {'visit_count': visit_count})
 
 @api_view(['GET'])
 def visit_count_api(request):

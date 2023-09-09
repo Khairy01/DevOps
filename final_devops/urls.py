@@ -1,8 +1,7 @@
-"""
-URL configuration for final_devops project.
+"""final_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,8 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from WeBib import views
+from django.urls import path,include
 
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
+    path('webib/',include("WeBib.urls")),
     path("admin/", admin.site.urls),
     path('', include('userapp.urls')),
+    path('accueil/', views.view_accueil_user, name = 'accueil_user'),
+    path('api/user/', views.user_list, name='user_list'),
+    path('api/visit-count/', views.visit_count_api, name='visit_count_api')
 ]
+

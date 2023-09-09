@@ -1,0 +1,26 @@
+table{
+  border: solid;
+  margin: auto;
+}
+
+td{
+  border: solid;
+  width: 10rem;
+}
+.td{
+  font-weight: 600;
+}
+.tr{
+  background-color: #f6f6f6;
+}
+h1{
+  color: #000;
+  font-weight: 900;
+  text-align: center;
+}
+.div{
+  margin-top: 130px;
+}
+th{
+  color:#2a9ee9;
+}

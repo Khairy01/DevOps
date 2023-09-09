@@ -7,9 +7,9 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def home(request):
 	if request.user.is_superuser : 
-		return render(request, 'admin.html')
+		return render(request, 'page_accueil_admin.html')
 	else :
-		return render(request, 'base.html')
+		return render(request, 'page_accueil_user.html')
 	
 
 def register(request):

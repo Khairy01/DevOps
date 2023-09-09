@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "WeBib",
+    "userapp",
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,9 @@ ROOT_URLCONF = "final_devops.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            BASE_DIR.joinpath('templates'),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -70,7 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "final_devops.wsgi.application"
 
-
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 

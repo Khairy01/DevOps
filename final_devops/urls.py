@@ -14,9 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.urls import path, include
+from rest_framework import routers
+from WeBib import views
 from django.urls import path,include
 
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('webib/',include("WeBib.urls"))
+    path('webib/',include("WeBib.urls")),
+    path("admin/", admin.site.urls),
+    path('', views.view_accueil_user, name = 'accueil_user'),
+    path('api/user/', views.user_list, name='user_list'),
+    path('api/visit-count/', views.visit_count_api, name='visit_count_api')
 ]
+

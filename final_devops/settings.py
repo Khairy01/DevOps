@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "WeBib",
+    "django_seed",
+    "rest_framework",
+    
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,13 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MIDDLEWARE_CLASSES = (
+    # ...
+    "visits.middleware.CounterMiddleware",
+)
+
+
 
 ROOT_URLCONF = "final_devops.urls"
 MEDIA_URL = '/media/'
@@ -78,13 +88,13 @@ WSGI_APPLICATION = "final_devops.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Bib',
+        'NAME': 'BibDB',
         'USER': 'postgres',
-        'PASSWORD': 'sall2001',
+        'PASSWORD': 'mars',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
         
 
     }

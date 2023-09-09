@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "WeBib",
+    "userapp",
     "django_seed",
     "rest_framework",
     
@@ -83,7 +84,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "final_devops.wsgi.application"
 
-
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -92,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'BibDB',
         'USER': 'postgres',
-        'PASSWORD': 'mars',
+        'PASSWORD': 'bonjoure',
         'HOST': 'localhost',
         'PORT': '5432',
         

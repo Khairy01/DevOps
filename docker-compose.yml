@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DEBUG=True
+      - DATABASE_URL=postgres://postgres:sall2001@db:5433/Bib 
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=Bib
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=sall2001
+    ports:
+      - "5433:5433"
+
+

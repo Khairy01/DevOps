@@ -50,4 +50,4 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker devops_web:latest
+          docker push devops_web:latest

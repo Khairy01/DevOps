@@ -38,8 +38,8 @@ jobs:
 #        working-directory: ./path/to/your/django/app
 
       - name: Build Docker image
-       run: |
-          docker build -t 'devops_web:latest' .
+        run: |
+          docker build -t devops_web:latest .
 
 
       - name: Login to Docker Hub

@@ -27,6 +27,6 @@ urlpatterns = [
     path('', include('userapp.urls')),
     path('accueil/', views.view_accueil_user, name = 'accueil_user'),
     path('api/user/', views.user_list, name='user_list'),
-    path('api/visit-count/', views.visit_count_api, name='visit_count_api')
+    path('api/visit-count/', views.visit_count, name='visit_count')
 ]
 

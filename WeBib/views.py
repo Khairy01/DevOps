@@ -1,7 +1,8 @@
 
 # Create your views here.
 import base64
-from .models import *
+from .models import Visit
+from django.contrib.auth.models import User
 import requests
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login
@@ -22,10 +23,9 @@ def view_accueil_admin(request):
 def view_liste_utilisateurs(request):
     api_url = "http://127.0.0.1:8000/api/user/"
     response = requests.get(api_url)
-    utilisateurs = response.json()  # Si l'API renvoie des données JSON
+    utilisateurs = response.json()  
 
     return render(request, 'page_list_users.html', {'utilisateurs': utilisateurs})
-
 
 
 @api_view(['GET'])
@@ -38,31 +38,23 @@ def user_list(request):
     return Response(serializer.data)
 
 
-def increment_visit_count(request):
-    # Récupérez le compteur de visites de la session
-    visit_count = request.session.get('visit_count', 0)
-    
-    # Incrémentez le compteur de visites
-    visit_count += 1
-    
-    # Enregistrez le nouveau compteur dans la session
-    request.session['visit_count'] = visit_count
-    
-    return visit_count
-
 def home_view(request):
-    visit_count = increment_visit_count(request)
-    return render(request, 'page_nombre_visite.html', {'visit_count': visit_count})
+    api_url = "http://127.0.0.1:8000/api/visit-count/"
+    response = requests.get(api_url)
+    visit = response.json()   
+    return render(request, 'page_nombre_visite.html', {'visit_count': visit})
+
 
 @api_view(['GET'])
-def visit_count_api(request):
+def visit_count(request):
     """
     API endpoint that allows number of visitors to be viewed.
     """
-    visit_count = request.session.get('visit_count', 0)
-    data = {'visit_count': visit_count}
-    serializer = VisitSerializer(data=data)  # Instanciez le sérialiseur avec les données
-    if serializer.is_valid():  # Vérifiez si le sérialiseur est valide
-        return Response(serializer.data)
-    else:
-        return Response(serializer.errors, status=400)  # Si le sérialiseur n'est pas valide, renvoyez une réponse d'erreur 400
+    visit = Visit.objects.first()
+    if not visit:
+        visit = Visit.objects.create()
+    visit.count += 1
+    visit.save()
+    
+    serializer = VisitSerializer(visit) 
+    return Response(serializer.data)  

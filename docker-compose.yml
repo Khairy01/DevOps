@@ -9,17 +9,15 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - db
+      - localhost
     environment:
       - DEBUG=True
-      - DATABASE_URL=postgres://postgres:sall2001@db:5433/Bib 
-  db:
+      - DATABASE_URL=postgres://postgres:mars@localhost:5432/BibDB
+  localhost:
     image: postgres:15
     environment:
-      - POSTGRES_DB=Bib
+      - POSTGRES_DB=BibDB
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=sall2001
+      - POSTGRES_PASSWORD=mars
     ports:
-      - "5433:5433"
-
-
+      - "5433:5432"

@@ -3,21 +3,13 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app
     depends_on:
-      - localhost
+      - postgres
+  postgres:
+    image: postgres:latest
     environment:
-      - DEBUG=True
-      - DATABASE_URL=postgres://postgres:mars@localhost:5432/BibDB
-  localhost:
-    image: postgres:15
-    environment:
-      - POSTGRES_DB=BibDB
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=mars
-    ports:
-      - "5433:5432"
+      POSTGRES_DB: Bib
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mars

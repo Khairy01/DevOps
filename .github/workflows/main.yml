@@ -32,15 +32,13 @@ jobs:
       - name: Run tests
         run: |
           docker-compose run -e DJANGO_SETTINGS_MODULE=final_devops.settings web pytest
-      
-#
 
 
-#      - name: Lint and format code
-#        run: |
-          # Add commands for linting and formatting here
-#        working-directory: ./path/to/your/django/app
-
+      - name: Lint and format code
+        run: |
+          black . --check
+          ruff check .
+            
       - name: Build Docker image
         run: |
           docker build -t mars2001/devops_web:latest .

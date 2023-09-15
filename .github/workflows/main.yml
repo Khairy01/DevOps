@@ -31,7 +31,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker-compose exec -it devops_web pytest 
+          docker-compose exec -it web pytest 
 #
 
 

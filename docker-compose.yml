@@ -10,6 +10,6 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_DB: Bib
+      POSTGRES_DB: BibDB
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: mars
+      POSTGRES_PASSWORD: bonjoure

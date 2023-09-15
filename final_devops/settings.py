@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "WeBib",
     "userapp",
     "django_seed",
-    "rest_framework",
+    'rest_framework',
     
 ]
 
@@ -92,14 +92,22 @@ LOGIN_REDIRECT_URL = 'home'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Bib',
+        'NAME': 'BibDB',
         'USER': 'postgres',
-        'PASSWORD': 'mars',
-        'HOST': 'localhost',
+        'PASSWORD': 'bonjoure',
+        'HOST': 'postgres',
         'PORT': '5432',
         
 
-    }
+    },
+    'test': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Bib_test',  # Nom de la base de données de test
+        'USER': 'postgres',
+        'PASSWORD': 'bonjoure',
+        'HOST': 'postgres',
+        'PORT': '5432',
+    },
 }
 
 
@@ -120,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
 
 
 # Internationalization

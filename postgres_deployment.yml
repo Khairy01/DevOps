@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1  # Réglez le nombre de répliques en fonction de vos besoins
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:latest
+        env:
+          - name: POSTGRES_DB
+            value: BibDB  # Nom de la base de données
+          - name: POSTGRES_USER
+            value: postgres  # Nom d'utilisateur de la base de données
+          - name: POSTGRES_PASSWORD
+            value: bonjoure  # Mot de passe de la base de données
+        ports:
+        - containerPort: 5432  # Port PostgreSQL

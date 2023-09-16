@@ -35,7 +35,7 @@ def user_list(request):
 
 
 def home_view(request):
-    api_url = "http://127.0.0.1:8000/api/visit-count/"
+    api_url = "http://127.0.0.1:80/api/visit-count/"
     response = requests.get(api_url)
     visit = response.json()
     return render(request, "page_nombre_visite.html", {"visit_count": visit})

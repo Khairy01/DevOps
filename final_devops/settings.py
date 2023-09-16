@@ -92,10 +92,10 @@ LOGIN_REDIRECT_URL = 'home'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'BibDB',
+        'NAME': 'bib',
         'USER': 'postgres',
-        'PASSWORD': 'bonjoure',
-        'HOST': 'postgres',
+        'PASSWORD': 'sall2011',
+        'HOST': os.environ.get("DB_HOST",'localhost'),
         'PORT': '5432',
         
 

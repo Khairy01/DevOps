@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-db
+  template:
+    metadata:
+      labels:
+        app: postgres-db
+    spec:
+      containers:
+      - name: postgres-db-container
+        image: fatou01/postgres:latest #nom_image(push sur dockerhub)
+        ports:
+        - containerPort: 5432 #port du container
+        env:
+        - name: USER
+          value: "postgres"
+        - name: PASSWORD
+          value: "sall2011"
+
+

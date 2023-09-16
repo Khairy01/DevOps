@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     "WeBib",
     "userapp",
     "django_seed",
-    'rest_framework',
-    
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -61,10 +60,9 @@ MIDDLEWARE_CLASSES = (
 )
 
 
-
 ROOT_URLCONF = "final_devops.urls"
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 TEMPLATES = [
     {
@@ -84,29 +82,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "final_devops.wsgi.application"
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "home"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'BibDB',
-        'USER': 'postgres',
-        'PASSWORD': 'bonjoure',
-        'HOST': 'postgres',
-        'PORT': '5432',
-        
-
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "BibDB",
+        "USER": "postgres",
+        "PASSWORD": "bonjoure",
+        "HOST": "postgres",
+        "PORT": "5432",
     },
-    'test': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Bib_test',  # Nom de la base de données de test
-        'USER': 'postgres',
-        'PASSWORD': 'bonjoure',
-        'HOST': 'postgres',
-        'PORT': '5432',
+    "test": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "Bib_test",  # Nom de la base de données de test
+        "USER": "postgres",
+        "PASSWORD": "bonjoure",
+        "HOST": "postgres",
+        "PORT": "5432",
     },
 }
 
@@ -116,7 +112,10 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -128,7 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
 
 
 # Internationalization

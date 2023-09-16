@@ -93,7 +93,7 @@ DATABASES = {
         "NAME": "BibDB",
         "USER": "postgres",
         "PASSWORD": "bonjoure",
-        "HOST": "postgres",
+        "HOST": "postgres-service",
         "PORT": "5432",
     },
     "test": {

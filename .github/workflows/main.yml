@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - ci/cd_test
+      - main
   pull_request:
     branches:
-      - ci/cd_test
+      - main
 
 jobs:
   build:
@@ -29,15 +29,15 @@ jobs:
         run: |
           docker-compose up -d
 
-      - name: Run tests
-        run: |
-          docker-compose run -e DJANGO_SETTINGS_MODULE=final_devops.settings web pytest
-
-
       - name: Lint and format code
         run: |
           black . --check
           ruff check .
+          
+      - name: Run tests
+        run: |
+          docker-compose run -e DJANGO_SETTINGS_MODULE=final_devops.settings web pytest
+
             
       - name: Build Docker image
         run: |

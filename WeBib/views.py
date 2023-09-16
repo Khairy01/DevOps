@@ -1,16 +1,11 @@
 # Create your views here.
-import base64
 from .models import Visit
 from django.contrib.auth.models import User
 import requests
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render
 from .serializers import UserSerializer, VisitSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.http import HttpResponse
-from rest_framework import status
 
 
 def view_accueil_user(request):

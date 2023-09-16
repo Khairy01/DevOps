@@ -1,7 +1,5 @@
-from django.contrib import admin
-from django.urls import path, include
-from .views import *
-from django.conf import settings
+from django.urls import path
+from .views import view_liste_utilisateurs, home_view, view_accueil_admin
 from django.conf.urls.static import static
 
 urlpatterns = [

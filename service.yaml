@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-service
+spec:
+  selector:
+    app: django-app
+  ports:
+    - protocol: TCP
+      port: 80  # Port externe auquel accéder à votre application
+      targetPort: 8000  # Port container sur lequel votre application écoute
+  type: LoadBalancer  # Type de service pour exposer l'application à l'extérieur

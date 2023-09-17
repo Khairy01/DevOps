@@ -4,7 +4,7 @@ services:
     build:
       context: .
     ports:
-      - "8000:8000"
+      - "7000:7000"
     depends_on:
       - postgres
   postgres:
@@ -12,4 +12,4 @@ services:
     environment:
       POSTGRES_DB: BibDB
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: mars
+      POSTGRES_PASSWORD: bonjoure

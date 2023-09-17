@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Khairy01/DevOps.git
     path: argocd-app
-    targetRevision: HEAD
+    targetRevision: master
   destination:
     server: https://kubernetes.default.svc
     namespace: django-app

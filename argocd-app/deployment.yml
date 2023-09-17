@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: django-app
 spec:
-  replicas: 1  # Le nombre de répliques que vous souhaitez exécuter
+  replicas: 2  # Le nombre de répliques que vous souhaitez exécuter
   selector:
     matchLabels:
       app: django-app

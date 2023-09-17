@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: django-app-argo-application
+  name: django-app
   namespace: argocd
 spec:
   project: default
@@ -13,11 +13,7 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: django-app
-
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-
     automated:
       selfHeal: true
       prune: true

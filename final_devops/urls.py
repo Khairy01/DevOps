@@ -24,5 +24,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("userapp.urls")),
     path("accueil/", views.view_accueil_user, name="accueil_user"),
-
 ]

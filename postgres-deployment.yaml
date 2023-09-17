@@ -17,7 +17,7 @@ spec:
         image: mars2001/postgres:latest
         env:
           - name: POSTGRES_DB
-            value: Bib  # Nom de la base de données
+            value: BibDB  # Nom de la base de données
           - name: POSTGRES_USER
             value: postgres  # Nom d'utilisateur de la base de données
           - name: POSTGRES_PASSWORD

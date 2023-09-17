@@ -92,7 +92,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "BibDB",
         "USER": "postgres",
-        "PASSWORD": "bonjoure",
+        "PASSWORD": "mars",
         "HOST": "postgres-service",
         "PORT": "5432",
     },
@@ -100,7 +100,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "Bib_test",  # Nom de la base de données de test
         "USER": "postgres",
-        "PASSWORD": "bonjoure",
+        "PASSWORD": "mars",
         "HOST": "postgres",
         "PORT": "5432",
     },

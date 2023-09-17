@@ -21,6 +21,6 @@ spec:
           - name: POSTGRES_USER
             value: postgres  # Nom d'utilisateur de la base de données
           - name: POSTGRES_PASSWORD
-            value: bonjoure  # Mot de passe de la base de données
+            value: mars # Mot de passe de la base de données
         ports:
         - containerPort: 5432  # Port PostgreSQL

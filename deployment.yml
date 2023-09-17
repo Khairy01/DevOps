@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: django-app
-        image: fatou1801/devops_web:latest  # L'image Docker de votre application
+        image: mars2001/devops_web:latest  # L'image Docker de votre application
         ports:
         - containerPort: 8000  # Le port sur lequel votre application Django écoute

@@ -12,4 +12,4 @@ services:
     environment:
       POSTGRES_DB: BibDB
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: bonjoure
+      POSTGRES_PASSWORD: mars

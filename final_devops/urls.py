@@ -27,4 +27,3 @@ urlpatterns = [
     path("api/user/", views.user_list, name="user_list"),
     path("api/visit-count/", views.visit_count, name="visit_count"),
 ]
-
